@@ -1,23 +1,25 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import Header from "./components/Header";
+import Home from "./pages/Home";
+import Products from "./pages/Products";
+import Cart from "./pages/Cart";
+import Search from "./pages/Search";
 
-function App() {
+const App = () => {
   return (
-    <div className='App'>
-      <header className='App-header bg-slate-4000'>
-        <p className='text-blue-800'>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className='text-2xl font-bold underline'
-          href='https://reactjs.org'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <main className='container mx-auto mt-10'>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/products' element={<Products />} />
+          <Route path='/cart' element={<Cart />} />
+          <Route path='/search' element={<Search />} />
+        </Routes>
+      </main>
+    </>
   );
-}
+};
 
 export default App;
